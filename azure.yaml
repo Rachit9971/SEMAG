@@ -1,0 +1,8 @@
+name: semag
+infra:
+  provider: bicep
+services:
+  timerfunction:
+    project: src
+    host: function
+    language: ts
