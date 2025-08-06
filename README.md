@@ -83,7 +83,9 @@ A serverless Azure Functions application with TypeScript that runs a timer trigg
 ## 🚀 Deployment
 
 ### Quick Start
+
 1. **For automated setup** (requires admin permissions):
+
    ```bash
    ./scripts/setup-azure-deployment.sh
    ```
@@ -93,23 +95,28 @@ A serverless Azure Functions application with TypeScript that runs a timer trigg
    - See [DEPLOYMENT-ALTERNATIVE.md](DEPLOYMENT-ALTERNATIVE.md) for alternative approaches
 
 ### GitHub Actions Status
+
 - **Repository**: https://github.com/Rachit9971/SEMAG
 - **Environment**: `dev` (configured)
 - **Subscription**: `da45eee1-dcbc-4d10-8d8c-dfe8ef3f71e9`
 - **Tenant**: `5581c9a8-168b-45f0-abd4-d375da99bf9f`
 
 ### Deployment Requirements
+
 - Azure service principal with:
   - `Contributor` role on subscription
   - `User Access Administrator` role on subscription
   - Federated identity for GitHub Actions OIDC
 
 ### Automatic Deployment
+
 - **Main branch**: Automatically deploys to Azure on push
 - **Feature branches**: Run tests and health checks on PR
 
 ### Manual Deployment
+
 Trigger manual deployment via GitHub Actions:
+
 1. Go to Actions tab in your repository
 2. Select "CD - Deploy to Azure" workflow
 3. Click "Run workflow"

@@ -110,7 +110,7 @@ resource functionApp 'Microsoft.Web/sites@2023-01-01' = {
         }
         {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~18'
+          value: '~20'
         }
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
