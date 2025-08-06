@@ -126,6 +126,7 @@ func azure functionapp publish $FUNCTION_APP_NAME --typescript
 ## 🎯 Verification
 
 ### Check Deployment Status
+
 ```bash
 # Check GitHub Actions
 gh workflow list
@@ -136,13 +137,16 @@ az resource list --tag azd-env-name=$AZURE_ENV_NAME --output table
 ```
 
 ### Monitor Function Execution
+
 ```bash
 # View function logs
 az functionapp log tail --name $FUNCTION_APP_NAME --resource-group rg-$AZURE_ENV_NAME
 ```
 
 ### Test Timer Function
+
 Your timer function runs every minute. Check the logs to see:
+
 - "Timer function processed request."
 - "HELLO HELLO HELLO HELLO HELLO HELLO"
 - "Timer function completed after 5 seconds."

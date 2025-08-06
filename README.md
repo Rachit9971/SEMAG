@@ -1,8 +1,7 @@
 # SEMAG - Azure Functions Timer Trigger
 
-[![CI - Build and Test](https://github.com/USER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/USER/REPO/actions/workflows/ci.yml)
-[![CD - Deploy to Azure](https://github.com/USER/REPO/actions/workflows/deploy.yml/badge.svg)](https://github.com/USER/REPO/actions/workflows/deploy.yml)
-[![codecov](https://codecov.io/gh/USER/REPO/branch/main/graph/badge.svg)](https://codecov.io/gh/USER/REPO)
+[![CI - Build and Test](https://github.com/Rachit9971/SEMAG/actions/workflows/ci.yml/badge.svg)](https://github.com/Rachit9971/SEMAG/actions/workflows/ci.yml)
+[![CD - Deploy to Azure](https://github.com/Rachit9971/SEMAG/actions/workflows/deploy.yml/badge.svg)](https://github.com/Rachit9971/SEMAG/actions/workflows/deploy.yml)
 
 A serverless Azure Functions application with TypeScript that runs a timer trigger every minute.
 
@@ -32,12 +31,14 @@ A serverless Azure Functions application with TypeScript that runs a timer trigg
 ├── .github/
 │   └── workflows/          # GitHub Actions workflows
 ├── infra/                  # Azure Bicep infrastructure templates
+├── scripts/                # Deployment automation scripts
 ├── src/
 │   ├── functions/          # Azure Functions
 │   └── index.ts           # App configuration
 ├── tests/                  # Unit tests
 ├── azure.yaml             # Azure Developer CLI config
 ├── host.json              # Functions host configuration
+├── DEPLOYMENT.md          # Complete deployment guide
 └── local.settings.json    # Local development settings
 ```
 
@@ -81,17 +82,34 @@ A serverless Azure Functions application with TypeScript that runs a timer trigg
 
 ## 🚀 Deployment
 
-The application uses GitHub Actions for automated deployment:
+### Quick Start
+1. **For automated setup** (requires admin permissions):
+   ```bash
+   ./scripts/setup-azure-deployment.sh
+   ```
+
+2. **For manual setup** (if you don't have service principal creation rights):
+   - See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed instructions
+   - See [DEPLOYMENT-ALTERNATIVE.md](DEPLOYMENT-ALTERNATIVE.md) for alternative approaches
+
+### GitHub Actions Status
+- **Repository**: https://github.com/Rachit9971/SEMAG
+- **Environment**: `dev` (configured)
+- **Subscription**: `da45eee1-dcbc-4d10-8d8c-dfe8ef3f71e9`
+- **Tenant**: `5581c9a8-168b-45f0-abd4-d375da99bf9f`
+
+### Deployment Requirements
+- Azure service principal with:
+  - `Contributor` role on subscription
+  - `User Access Administrator` role on subscription
+  - Federated identity for GitHub Actions OIDC
 
 ### Automatic Deployment
-
 - **Main branch**: Automatically deploys to Azure on push
 - **Feature branches**: Run tests and health checks on PR
 
 ### Manual Deployment
-
 Trigger manual deployment via GitHub Actions:
-
 1. Go to Actions tab in your repository
 2. Select "CD - Deploy to Azure" workflow
 3. Click "Run workflow"
